@@ -1,1 +1,0 @@
-person,person,chair,chair,chair,diningtable,chair,chair,chair,chair,chair,chair,laptop,person

@@ -29,6 +29,14 @@ io.on('connection', function(socket){
     else if (msg === 'clear') {
       clear();
     }
+    else if (msg === 'load') {
+      execSync('cp mobydickdata/p2.csv app/data/p2.csv');
+      execSync('python3 main.py --demo');
+    }
+    else if (msg === 'demo') {
+      execSync('cp story_demo/p2.csv app/data/p2.csv')
+      execSync('python3 main.py --demo');
+    }
     else {
       buffer += prev;
       prev = msg + '. ';
@@ -41,7 +49,9 @@ io.on('connection', function(socket){
     execSync('rm nouns.txt');
 		execSync('touch nouns.txt');
     execSync('./darknet detect cfg/yolo.cfg yolo.weights out.png');
-    execSync('open predictions.png');
+    //execSync('open predictions.png');
+    execSync('cp predictions.png app/data/phonphoto.png')
+    execSync('python3 main.py --nouns nouns.txt')
   });
 
   socket.on('disconnect', function(){
@@ -73,8 +83,7 @@ function analyze() {
     }
   });
   console.log('Voice: ' + buffer + prev);
-  //TODO: Uncomment this
-  // execSync('python3 main.py --text google_home_input.txt');
+  execSync('python3 main.py --text google_home_input.txt');
 }
 
 function clear() {

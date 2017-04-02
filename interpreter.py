@@ -287,7 +287,7 @@ def analyze_verbs(graphs):
     ]
 
 
-def generate_p1(mappings, file_name="out/p1.csv"):
+def generate_p1(mappings, file_name="app/data/p1.csv"):
     """ generate csv file that satisfies Part 1 of the requirements
     
     :param mappings: 2D array of verb-object relationships mappings
@@ -353,7 +353,10 @@ def generate_p2(mappings, file_name="app/data/p2.csv"):
             )
 
 
-def generate_noun_csv(p2="app/data/p2.csv", p2i="app/data/p2i.csv", p3="app/data/p3.csv", nouns="app/data/nouns.txt"):
+def generate_noun_csv(p2="app/data/p2.csv", 
+    p2i="app/data/p2i.csv", 
+    p3="app/data/p3.csv", 
+    nouns="app/data/nouns.txt"):
     with open(p2) as p2_file:
         with open(p2i, 'w') as p2i_file:
             csv.writer(p2i_file, delimiter=',').writerows(zip(*csv.reader(p2_file, delimiter=',')))

@@ -20,9 +20,27 @@ parser.add_argument(
     default="input.txt"
 )
 
+parser.add_argument(
+    "--demo",
+    dest="demo",
+    action="store_true",
+    help="demo an existing csv",
+    default=False
+)
+
+parser.add_argument(
+    "--graph",
+    dest="graph",
+    action="store_true",
+    help="save graphs",
+    default=False
+)
+
 args = parser.parse_args()
 
-if args.nouns:
+if args.demo:
+    interp.render_webpage()
+elif args.nouns:
     interp.generate_noun_csv(nouns=args.nouns)
     interp.render_webpage(webpage="file:///Users/alex/github/phonics-node-backend/app/index3.html")
 else:
@@ -30,9 +48,10 @@ else:
     stripped_text = interp.strip_parens(text)
     tokenized_text = interp.lengthy_structured_tokenization(text)
     graphs = interp.get_dependency_graphs(tokenized_text)
-    # for paragraph_array in graphs:
-    #     for sentence_graph in paragraph_array:
-    #         interp.save_dependency_graph(sentence_graph)
+    if args.graph:
+        for paragraph_array in graphs:
+            for sentence_graph in paragraph_array:
+                interp.save_dependency_graph(sentence_graph)
     maps = interp.analyze_verbs(graphs)
     interp.generate_p1(maps)
     interp.generate_p2(maps)
