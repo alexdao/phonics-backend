@@ -1,0 +1,51 @@
+paragraph #,sentence #,verb,object
+1,1,study,ways
+1,1,make,learning
+1,1,program,
+1,2,be,
+1,2,create,programs
+1,3,be,
+1,3,study,
+1,3,nonprogrammers,reason
+1,3,nonprogrammers,programming concepts
+1,3,create,programming languages
+1,3,create,environments
+1,3,apply,findings
+2,1,use,mechanisms
+2,1,use,looping
+2,1,use,conditionals
+2,1,use,assignments
+2,1,have,
+2,1,cause,errors
+2,1,cause,beginning
+2,1,cause,expert programmers
+2,1,cause,C language
+3,1,reveal,results
+3,1,be,
+3,1,guide,design
+3,1,guide,programming system
+3,2,be,holes
+3,2,be,knowledge
+3,2,be,people
+3,2,reason,programs
+3,2,reason,programming
+3,3,need,
+3,3,study,paradigms
+3,3,study,computing
+3,3,be,
+3,4,be,
+3,4,be,studying
+3,4,be,styles
+3,4,be,
+3,4,be,event
+3,4,be,Visual Basic
+3,4,be,HyperTalk
+3,4,be,language research community
+3,4,be,C++
+3,4,be,Java
+3,4,be,systems
+3,4,be,novice programmers
+3,4,tend,
+3,5,be,beginning programmers
+3,6,perform,user studies
+3,6,investigate,question
