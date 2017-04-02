@@ -38,6 +38,8 @@ io.on('connection', function(socket){
   socket.on('sending_image', function(msg){
     decodeBase64(msg.image);
     console.log('Received image!');
+    execSync('rm nouns.txt');
+		execSync('touch nouns.txt');
     execSync('./darknet detect cfg/yolo.cfg yolo.weights out.png');
     execSync('open predictions.png');
   });
@@ -63,7 +65,16 @@ function erase() {
 
 // Speaker has finished speaking
 function analyze() {
+  execSync('rm google_home_input.txt');
+  execSync('touch google_home_input.txt');
+  fs.writeFileSync("google_home_input.txt", buffer + prev, 'utf-8', function(err) {
+    if (err != null) {
+      console.log('Error ' + err);
+    }
+  });
   console.log('Voice: ' + buffer + prev);
+  //TODO: Uncomment this
+  // execSync('python3 main.py --text google_home_input.txt');
 }
 
 function clear() {
