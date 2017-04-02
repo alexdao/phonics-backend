@@ -175,7 +175,7 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
 {
     int i;
 
-    FILE *f = fopen("nouns.txt", "a");
+    FILE *f = fopen("app/data/nouns.txt", "a");
     if (f == NULL)
     {
         printf("Error opening file!\n");

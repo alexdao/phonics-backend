@@ -46,12 +46,12 @@ io.on('connection', function(socket){
   socket.on('sending_image', function(msg){
     decodeBase64(msg.image);
     console.log('Received image!');
-    execSync('rm nouns.txt');
-		execSync('touch nouns.txt');
+    execSync('rm app/data/nouns.txt');
+		execSync('touch app/data/nouns.txt');
     execSync('./darknet detect cfg/yolo.cfg yolo.weights out.png');
     //execSync('open predictions.png');
     execSync('cp predictions.png app/data/phonphoto.png')
-    execSync('python3 main.py --nouns nouns.txt')
+    execSync('python3 main.py --nouns app/data/nouns.txt')
   });
 
   socket.on('disconnect', function(){
