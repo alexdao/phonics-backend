@@ -38,6 +38,8 @@ io.on('connection', function(socket){
   socket.on('sending_image', function(msg){
     decodeBase64(msg.image);
     console.log('Received image!');
+    execSync('./darknet detect cfg/yolo.cfg yolo.weights out.png');
+    execSync('open predictions.png');
   });
 
   socket.on('disconnect', function(){
@@ -47,8 +49,8 @@ io.on('connection', function(socket){
 
 
 function decodeBase64(base64Data) {
-  fs.writeFile("out.png", base64Data, 'base64', function(err) {
-    if (error != null) {
+  fs.writeFileSync("out.png", base64Data, 'base64', function(err) {
+    if (err != null) {
       console.log('Error ' + err);
     }
   });
