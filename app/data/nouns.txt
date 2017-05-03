@@ -1,0 +1,1 @@
+bottle,tvmonitor,chair,chair,diningtable,diningtable,chair,person,diningtable,person,person,diningtable
