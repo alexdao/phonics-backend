@@ -6,7 +6,6 @@ __pycache__/
 stanford-corenlp-full-2016-10-31/
 out/
 venv/
-app/data/
 *.pyc
 
 out.png
